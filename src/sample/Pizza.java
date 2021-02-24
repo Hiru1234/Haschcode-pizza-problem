@@ -4,11 +4,13 @@ import java.util.Arrays;
 
 public class Pizza {
     private int pizzaIndex;
-    private String[] ingredients;
     private int noOfIngredients;
+    private String[] ingredients;
 
-    public Pizza(int pizzaIndex, String[] ingredients) {
+
+    public Pizza(int pizzaIndex,int noOfIngredients, String[] ingredients) {
         this.pizzaIndex = pizzaIndex;
+        this.noOfIngredients = noOfIngredients;
         this.ingredients = ingredients;
     }
 
@@ -31,6 +33,14 @@ public class Pizza {
 
     public void setIngredients(String[] ingredients) {
         this.ingredients = ingredients;
+    }
+
+    public int getNoOfIngredients() {
+        return noOfIngredients;
+    }
+
+    public void setNoOfIngredients(int noOfIngredients) {
+        this.noOfIngredients = noOfIngredients;
     }
 
     @Override
