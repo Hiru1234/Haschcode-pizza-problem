@@ -1,12 +1,20 @@
 package sample;
 
+import java.util.Arrays;
+
 public class Pizza {
     private int pizzaIndex;
     private String[] ingredients;
+    private int noOfIngredients;
 
     public Pizza(int pizzaIndex, String[] ingredients) {
         this.pizzaIndex = pizzaIndex;
         this.ingredients = ingredients;
+    }
+
+    public Pizza(int pizzaIndex, int noOfIngredients) {
+        this.pizzaIndex = pizzaIndex;
+        ingredients = new String[noOfIngredients];
     }
 
     public int getPizzaIndex() {
@@ -25,4 +33,11 @@ public class Pizza {
         this.ingredients = ingredients;
     }
 
+    @Override
+    public String toString() {
+        return "Pizza{" +
+                "pizzaIndex=" + pizzaIndex +
+                ", ingredients=" + Arrays.toString(ingredients) +
+                '}';
+    }
 }
