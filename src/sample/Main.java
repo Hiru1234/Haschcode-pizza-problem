@@ -30,13 +30,11 @@ public class Main {
             while(sc.hasNextLine()){
                 if (!firstLineRead){
                     String[] firstLine = sc.nextLine().split(" ");
-
                     noOfPizzas = Integer.parseInt(firstLine[0]);
                     teamsOf2 = Integer.parseInt(firstLine[1]);
                     teamsOf3 = Integer.parseInt(firstLine[2]);
                     teamsOf4 = Integer.parseInt(firstLine[3]);
                     firstLineRead = true;
-
                 }else{
                     String line = sc.nextLine();
                     String[] lineAsArray = line.split(" ");
@@ -71,4 +69,23 @@ public class Main {
         return teamsOf4;
     }
 
+    public ArrayList<Pizza> getPizzaList() {
+        return pizzaList;
+    }
+
+    public void setNoOfPizzas(int noOfPizzas) {
+        this.noOfPizzas = noOfPizzas;
+    }
+
+    public void setTeamsOf2(int teamsOf2) {
+        this.teamsOf2 = teamsOf2;
+    }
+
+    public void setTeamsOf3(int teamsOf3) {
+        this.teamsOf3 = teamsOf3;
+    }
+
+    public void setTeamsOf4(int teamsOf4) {
+        this.teamsOf4 = teamsOf4;
+    }
 }

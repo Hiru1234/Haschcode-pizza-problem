@@ -1,6 +1,7 @@
 package sample;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Pizza {
     private int pizzaIndex;
@@ -18,6 +19,15 @@ public class Pizza {
         this.pizzaIndex = pizzaIndex;
         ingredients = new String[noOfIngredients];
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pizza pizza = (Pizza) o;
+        return pizzaIndex == pizza.pizzaIndex;
+    }
+
 
     public int getPizzaIndex() {
         return pizzaIndex;
