@@ -2,10 +2,7 @@ package sample;
 
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class PizzaOrder {
 
@@ -23,7 +20,7 @@ public class PizzaOrder {
         while (true){
             int totalCustomers = main.getTeamsOf2()*2 + main.getTeamsOf3()*3+ main.getTeamsOf4()*4;
 
-            if (totalCustomers>0 && main.getNoOfPizzas()>1){
+            if (totalCustomers>0 || main.getNoOfPizzas()>1){
 
                 while (main.getNoOfPizzas()>=4 && main.getTeamsOf4()>0){
 
@@ -106,6 +103,19 @@ public class PizzaOrder {
         return orderedPizzas;
     }
 
+//    private static ArrayList<Pizza> assignRemainingPizzas(ArrayList<Pizza> pizzaList){
+//        ArrayList<Pizza> orderedPizzas = new ArrayList<>();
+//        ArrayList<Ingredient> ingredients = new ArrayList<>();
+//
+//        for (Pizza pizza : pizzaList) {
+//            for (String ingredient : pizza.getIngredients()) {
+//                Ingredient ingredientObj = new Ingredient(pizza.getPizzaIndex(),ingredient);
+//            }
+////            ingredients
+//        }
+//        return orderedPizzas;
+//    }
+
     public static boolean isIngredientsDuplicated(ArrayList<String> ingredients){
         Set<String> hashSet = new HashSet<>();
         for (String ingredient : ingredients) {
@@ -117,14 +127,16 @@ public class PizzaOrder {
     }
 
 
-    public static boolean findDuplicates(ArrayList<String> names){
+    public static int noOfDuplicates(ArrayList<Ingredient> ingredients){
         Set<String> store = new HashSet<>();
+        int duplicates = 0;
+        ArrayList<String> names = new ArrayList<>();
         for (String name : names) {
             if (store.add(name) == false) {
-                return true;
+                duplicates++;
             }
         }
-        return false;
+        return duplicates;
     }
 
 }
