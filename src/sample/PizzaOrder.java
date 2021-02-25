@@ -127,7 +127,7 @@ public class PizzaOrder {
     }
 
 
-    public static int noOfDuplicates(ArrayList<Ingredient> ingredients){
+    public static int noOfDuplicates(ArrayList<String> ingredients){
         Set<String> store = new HashSet<>();
         int duplicates = 0;
         ArrayList<String> names = new ArrayList<>();
