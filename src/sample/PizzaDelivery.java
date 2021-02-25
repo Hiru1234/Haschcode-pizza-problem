@@ -12,6 +12,11 @@ public class PizzaDelivery {
 
 	}
 
+	public PizzaDelivery(int noOfTeamMembers, ArrayList<Pizza> pizzasAssigned) {
+		this.noOfTeamMembers = noOfTeamMembers;
+		this.pizzasAssigned = pizzasAssigned;
+	}
+
 	public int getNoOfTeamMembers() {
 		return noOfTeamMembers;
 	}
