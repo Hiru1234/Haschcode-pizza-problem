@@ -1,7 +1,6 @@
 package sample;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -48,6 +47,26 @@ public class Main {
                 }
             }
         } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void writeFile(File file,ArrayList<PizzaDelivery> pizzaDeliveries){
+        try {
+            FileWriter fileWriter = new FileWriter(file);
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+            printWriter.println(pizzaDeliveries.size());
+            for (PizzaDelivery pizzaDelivery: pizzaDeliveries){
+                String line = "";
+                for (Pizza pizza: pizzaDelivery.getPizzasAssigned()){
+                    line = line +" "+ String.valueOf(pizza.getPizzaIndex());
+                }
+                printWriter.println(pizzaDelivery.getNoOfTeamMembers()+line);
+            }
+            printWriter.close();
+            fileWriter.close();
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
