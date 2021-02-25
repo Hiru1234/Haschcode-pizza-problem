@@ -16,37 +16,31 @@ public class PizzaOrder {
         File file = new File("dataset/b_little_bit_of_everything.in");
         Main main = new Main();
         main.readFile(file);
-
-//        System.out.println(main.getPizzaList().size());
+        assignPizzas(main.getPizzaList(),3);
 
 
 
         while (true){
-//            int totalCustomers = main.getTeamsOf2()*2 + main.getTeamsOf3()*3+ main.getTeamsOf4()*4;
-            int totalCustomers = main.getTeamsOf3()*3;
+            int totalCustomers = main.getTeamsOf2()*2 + main.getTeamsOf3()*3+ main.getTeamsOf4()*4;
 
-            if (totalCustomers>0){
+            if (totalCustomers>0 && main.getNoOfPizzas()>1){
 
-//                while (main.getNoOfPizzas()>=4 && main.getTeamsOf4()>0){
-//
-//                    ArrayList<Pizza> pizzaFor4 = assignPizzas(main.getPizzaList(),4);
-//
-//                    if (pizzaFor4.size()==4){
-//                        PizzaDelivery pizzaDelivery = new PizzaDelivery();
-//                        pizzaDelivery.setNoOfTeamMembers(4);
-//                        pizzaDelivery.setPizzasAssigned(pizzaFor4);
-//                        pizzaDeliveries.add(pizzaDelivery);
-//
-//                        main.setNoOfPizzas(main.getNoOfPizzas()-4);
-//                        main.setTeamsOf4(main.getTeamsOf4()-1);
-//                    }else {
-//                        main.getPizzaList().addAll(pizzaFor4);
-//
-//                    }
-//
-//
-//                }
-//                System.out.println(pizzaDeliveries.size());
+                while (main.getNoOfPizzas()>=4 && main.getTeamsOf4()>0){
+
+                    ArrayList<Pizza> pizzaFor4 = assignPizzas(main.getPizzaList(),4);
+
+                    if (pizzaFor4.size()==4){
+                        PizzaDelivery pizzaDelivery = new PizzaDelivery();
+                        pizzaDelivery.setNoOfTeamMembers(4);
+                        pizzaDelivery.setPizzasAssigned(pizzaFor4);
+                        pizzaDeliveries.add(pizzaDelivery);
+
+                        main.setNoOfPizzas(main.getNoOfPizzas()-4);
+                        main.setTeamsOf4(main.getTeamsOf4()-1);
+                    }else {
+                        main.getPizzaList().addAll(pizzaFor4);
+                    }
+                }
 
                 while (main.getNoOfPizzas()>=3 && main.getTeamsOf3()>0){
 
@@ -59,41 +53,34 @@ public class PizzaOrder {
                         pizzaDeliveries.add(pizzaDelivery);
 
                         main.setNoOfPizzas(main.getNoOfPizzas()-3);
-                        main.setTeamsOf4(main.getTeamsOf4()-1);
+                        main.setTeamsOf3(main.getTeamsOf3()-1);
                     }else {
                         main.getPizzaList().addAll(pizzaFor3);
 
                     }
-                    System.out.println("Deliveries "+pizzaDeliveries.size());
-                    System.out.println("Pizzas "+main.getPizzaList().size());
-                    System.out.println("");
+                }
+                while (main.getNoOfPizzas()>=2 && main.getTeamsOf2()>0){
+                    ArrayList<Pizza> pizzaFor2 = assignPizzas(main.getPizzaList(),2);
+                    if (pizzaFor2.size()==2){
+                        PizzaDelivery pizzaDelivery = new PizzaDelivery();
+                        pizzaDelivery.setNoOfTeamMembers(2);
+                        pizzaDelivery.setPizzasAssigned(pizzaFor2);
+                        pizzaDeliveries.add(pizzaDelivery);
 
+                        main.setNoOfPizzas(main.getNoOfPizzas()-2);
+                        main.setTeamsOf2(main.getTeamsOf2()-1);
+                    }else {
+                        main.getPizzaList().addAll(pizzaFor2);
+
+                    }
+                    System.out.println(main.getNoOfPizzas());
+                    System.out.println(main.getTeamsOf2());
 
                 }
-//                while (main.getNoOfPizzas()>=2 && main.getTeamsOf2()>0){
-//                    ArrayList<Pizza> pizzaFor2 = assignPizzas(main.getPizzaList(),2);
-//                    if (pizzaFor2.size()==2){
-//                        PizzaDelivery pizzaDelivery = new PizzaDelivery();
-//                        pizzaDelivery.setNoOfTeamMembers(2);
-//                        pizzaDelivery.setPizzasAssigned(pizzaFor2);
-//                        pizzaDeliveries.add(pizzaDelivery);
-//
-//                        main.setNoOfPizzas(main.getNoOfPizzas()-2);
-//                        main.setTeamsOf4(main.getTeamsOf4()-1);
-//                    }else {
-//                        main.getPizzaList().addAll(pizzaFor2);
-//
-//                    }
-//
-//
-//                }
-//                System.out.println(pizzaDeliveries.size());
-
 
             }else {
                 break;
             }
-            System.out.println(main.getPizzaList().size());
         }
 
 
